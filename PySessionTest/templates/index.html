@@ -1,0 +1,33 @@
+{# index.html #}
+{% extends "layout.html"%}
+{%block styling%}
+    .center_content{
+        position:absolute;
+text-align:center;
+        top:33.3%;
+        left:33.3%;
+    }
+    .extra_big{
+        font-size:320%;
+    }
+{%endblock styling%}
+{% block content  %}
+    <div class="center_content">
+        {% if  current_user.name != null : %}
+        <div>
+            <h1 class="extra_big">Hallo {{current_user.name}}</h1>
+            <p>De Volgende Items zijn helemaal op jou en jou computer gebasseerd</p>
+            Je Ip adres is : {{config.SERVER_PORT}}
+        </div>
+        {% else: %}
+        <h1 class="extra_big">Welcome to Pysession</h1>
+         <a href="{{url_for('login')}}" class="btn btn-primary" aria-pressed="true">Login</a>
+        <a href="#" class="btn btn-primary">Register</a>
+        <a href="#" class="btn btn-secondary">Login Google</a>
+        {% endif %}
+    </div>
+
+{% endblock content %}
+{% block footer %}
+    {% include 'includes/_footer.html' %}
+{% endblock footer %}

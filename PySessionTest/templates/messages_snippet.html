@@ -1,0 +1,20 @@
+{% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class='flashes'>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+
+email_addrs = login_form.email.data
+        user = User.query.filter_by( email = email_addrs ).first()
+        if  user.email is not None and user.check_password(login_form.password.data):
+            flash('Je bent bekend')
+            #login_user(user)
+            return redirect(url_for("index"))
+        else:
+            flash('Onbekende nederlander. Je zou je bij ons moeten registreren.')
+            return redirect(url_for("index"))

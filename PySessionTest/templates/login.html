@@ -1,0 +1,29 @@
+{# login.html #}
+{% extends "layout.html"%}
+
+
+{% block content  %}
+    <h5>Please login with your emailaddresss and password</h5>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class='flashes'>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form action = '/login'method="POST">
+        {{form.csrf_token }}
+        {% for message in form.email.errors %}
+            {{message}}
+        {% endfor %}
+        {{form.email(placeholder="Email adress")}}
+        {% for message in form.password.errors %}
+            {{message}}
+        {% endfor %}
+        {{form.password(placeholder="password" )}}<br/>
+        {{form.submit(class='btn btn-primary')}}
+    </form>
+{% endblock content %}
