@@ -1,0 +1,29 @@
+{# login.html #}
+{% extends 'auth/auth_layout.html' %}
+{% block content %}
+<H2>Login</H2>
+<div class="content">
+    <div class="form_div">
+        <p>Fill in this form and submit</p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class='flashes'>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+        <form method="POST" action = '/auth/authorize'>
+            {{form.csrf_token }}
+            {{form.email(placeholder="Email adress")}}<br/>
+            {{form.password(placeholder="password" )}}<br/>
+            {{form.submit(class='btn btn-primary')}}
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripting %}
+
+{% endblock scripting %}

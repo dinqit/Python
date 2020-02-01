@@ -1,0 +1,60 @@
+@import url('/static/css/bootstrap.min.css');
+@import url('/static/css/Toast.css')
+html,body{
+    position:relative;
+}
+.c_Main{
+    display:block;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:6em;
+ }
+ @media(min-width:600px){
+    .c_Main{
+        max-width:50%;
+        display:block;
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:6em;
+    }
+ }
+.content{
+   background:#333;
+   color:#fff;
+   text-align:left;
+   display:block;
+   padding:4em;
+}
+.formDiv{
+max-width:70%;
+height:50%;
+margin:2em auto;
+padding:2em;margin-bottom:2em;
+}
+input[type='text'],[type='password']{
+    margin:1em 0;
+    width:100%;
+    border-radius:.5em;
+    border:1px solid #000;
+    height:40px;
+    line-height:40px;
+    padding:0.6em;
+}
+footer{
+    display:block
+    text-align:center;
+    position:absolute;
+    heigth:2em;
+    line-height:2em;
+    bottom:0;
+    border-top:1px solid #eee;
+    width:inherit;
+    background:#34393e;
+    color:#fff;
+}
+.footer_left{
+    text-align:left;
+    font-size:78%;
+}

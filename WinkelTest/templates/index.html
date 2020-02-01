@@ -1,0 +1,11 @@
+{# index.html #}
+{% extends "layout.html"%}
+{% block content  %}
+    {% if session['user_name'] %}
+        Welcomce {{user}}
+    {% endif %}
+    {% else %}
+    <h2>Welcome to WinkelTest</h2>
+    <p>If you already registered to our site please <a href ="{{url_for('login')}}">login here</a></p>
+    {%  endelse %}
+{% endblock content %}
